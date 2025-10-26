@@ -144,19 +144,19 @@ See AWS SES documentation for setup instructions.
 ```
 django-auth-jwt/
 ├── accounts/              # User authentication app
-│   ├── models.py         # CustomUser and VerifyEmailToken models
-│   ├── views.py          # All authentication endpoints
-│   ├── serializers.py    # User serializers
-│   ├── utils.py          # Registration utility
-│   └── urls.py           # Auth URL routing
+│   ├── models.py          # CustomUser and VerifyEmailToken models
+│   ├── views.py           # All authentication endpoints
+│   ├── serializers.py     # User serializers
+│   ├── utils.py           # Registration utility
+│   └── urls.py            # Auth URL routing
 ├── core/                  # Project settings
-│   ├── settings.py       # Django configuration
-│   ├── urls.py           # Main URL routing
-│   ├── email.py          # Email sending functions
+│   ├── settings.py        # Django configuration
+│   ├── urls.py            # Main URL routing
+│   ├── email.py           # Email sending functions
 │   └── email_templates.py # HTML email templates
-├── .env.example          # Environment variables template
-├── requirements.txt      # Python dependencies
-└── manage.py             # Django management script
+├── .env.example           # Environment variables template
+├── requirements.txt       # Python dependencies
+└── manage.py              # Django management script
 ```
 
 ## Security Features
