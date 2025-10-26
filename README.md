@@ -35,24 +35,28 @@ A complete, production-ready authentication backend built with Django REST Frame
 ## Quick Start
 
 ### 1. Clone the Repository
-
-git clone https://github.com/yourusername/django-auth-jwt.git
+```bash
+git clone https://github.com/blakeary/django-auth-jwt.git
 cd django-auth-jwt
+```
 
 ### 2. Create Virtual Environment
-
+```bash
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+```
 
 ### 3. Install Dependencies
-
+```bash
 pip install -r requirements.txt
+```
 
 ### 4. Environment Setup
 
 Copy .env.example to .env and configure your settings:
-
+```bash
 cp .env.example .env
+```
 
 Edit .env:
 - Set SECRET_KEY (generate with: python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())")
@@ -61,66 +65,70 @@ Edit .env:
 - Set FRONTEND_URL for email links
 
 ### 5. Run Migrations
-
+```bash
 python manage.py migrate
+```
 
 ### 6. Create Superuser (Optional)
-
+```bash
 python manage.py createsuperuser
+```
 
 ### 7. Run Development Server
-
+```bash
 python manage.py runserver
+```
 
 The API will be available at http://localhost:8000
 
-## API Endpoints
+## API Documentation
 
-### Registration and Verification
+For detailed API endpoint examples with request/response formats, see [API Examples](https://github.com/blakeary/django-auth-jwt/blob/main/API%20Examples.md).
 
-POST /api/auth/register/
-POST /api/auth/verify-email/
+### Endpoints Summary
 
-### Authentication
+**Registration and Verification**
+- POST /api/auth/register/
+- POST /api/auth/verify-email/
 
-POST /api/auth/login/
-POST /api/auth/refresh/
-POST /api/auth/logout/
+**Authentication**
+- POST /api/auth/login/
+- POST /api/auth/refresh/
+- POST /api/auth/logout/
 
-### Password Management
+**Password Management**
+- POST /api/auth/reset-password/
+- POST /api/auth/reset-password-confirm/
+- POST /api/auth/change-password/
 
-POST /api/auth/reset-password/
-POST /api/auth/reset-password-confirm/
-POST /api/auth/change-password/
+**Profile Management**
+- GET /api/auth/profile/
+- PATCH /api/auth/profile/
+- DELETE /api/auth/profile/
 
-### Profile Management
-
-GET /api/auth/profile/
-PATCH /api/auth/profile/
-DELETE /api/auth/profile/
-
-### Email Management
-
-POST /api/auth/change-email/
-POST /api/auth/change-email-confirm/
-POST /api/auth/change-email-cancel/
+**Email Management**
+- POST /api/auth/change-email/
+- POST /api/auth/change-email-confirm/
+- POST /api/auth/change-email-cancel/
 
 ## Configuration
 
 ### Development Mode
 
 For local development, emails will print to console. Set in .env:
-
+```
 DEBUG=True
+```
 
 ### Production Mode
 
 For production, configure AWS SES:
-
+```
 DEBUG=False
 AWS_ACCESS_KEY_ID=your-key
 AWS_SECRET_ACCESS_KEY=your-secret
 AWS_SES_REGION_NAME=us-east-1
+```
 
 See AWS SES documentation for setup instructions.
 
@@ -133,7 +141,7 @@ See AWS SES documentation for setup instructions.
 - Python Dotenv 1.0.0
 
 ## Project Structure
-
+```
 django-auth-jwt/
 ├── accounts/              # User authentication app
 │   ├── models.py         # CustomUser and VerifyEmailToken models
@@ -149,6 +157,7 @@ django-auth-jwt/
 ├── .env.example          # Environment variables template
 ├── requirements.txt      # Python dependencies
 └── manage.py             # Django management script
+```
 
 ## Security Features
 
@@ -166,7 +175,7 @@ django-auth-jwt/
 Use the included API documentation to test endpoints with tools like Postman or curl.
 
 Example register request:
-
+```bash
 curl -X POST http://localhost:8000/api/auth/register/ \
   -H "Content-Type: application/json" \
   -d '{
@@ -175,6 +184,7 @@ curl -X POST http://localhost:8000/api/auth/register/ \
     "first_name": "Test",
     "last_name": "User"
   }'
+```
 
 ## Contributing
 
